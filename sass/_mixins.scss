@@ -1,0 +1,66 @@
+@function calculateRem($size) {
+  $remSize: $size * $font-size-page;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size * $font-size-page;
+  font-size: calculateRem($size);
+}
+
+@mixin equalSpaced( $num_of_cols, $gutter:false, $width:100%  ){
+
+  @if $gutter {
+    width: ( $width - ( $gutter * ($num_of_cols - 1) ) ) / $num_of_cols;
+    margin-left: $gutter;
+  } @else {
+    width: $width / $num_of_cols;
+  }
+  float: left;
+  // Remove Spacing from First Child
+  &:first-child{
+    margin-left: 0;
+  }
+
+}
+@mixin box-sizing($option) {
+  -webkit-box-sizing: $option;
+  box-sizing: $option;
+}
+
+@mixin border($size, $colour:null, $side:null) {
+  $style: null;
+  @if $size > 0 {
+    $style: solid;
+  }
+  @if $side != null {
+    border-#{$side}: $size $style $colour;
+  } @else {
+    border: $size $style $colour;
+  }
+}
+
+@mixin colors($bg-color, $tx-color) {
+  background-color: $bg-color;
+  color: $tx-color;
+}
+
+@mixin font-weight($factor) {
+  font-weight: $factor * 100;
+}
+%clearfix {
+  &:after {
+    display:table;
+    clear: both;
+    content: "";
+  }
+  //*zoom: 1;
+  //&:before,
+  //&:after {
+  //  display: table;
+  //  content: “”;
+  //}
+  //&:after {
+  //  clear: both;
+  //}
+}

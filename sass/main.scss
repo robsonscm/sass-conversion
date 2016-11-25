@@ -1,1 +1,200 @@
-// main SASS file
+//// main SASS file ////
+@import "variables";
+@import "mixins";
+//
+*{
+  padding:0;
+  margin: 0;
+  @include box-sizing(border-box);
+  &:after, &:before{
+    @include box-sizing(border-box);
+  }
+}
+html{
+  font-size: $font-size-page;
+  font-family: $fontStack-page;
+  line-height: $line-height-page;
+}
+h1, h2, h3, h4{
+  font-family: $fontStack-head;
+}
+ul{
+  list-style: none;
+}
+.clearfix{
+  @extend %clearfix;
+}
+.bg-header{
+  @include colors($bg-color-light, $color-dark02);
+  @include border(1rem, $bg-color-med, "bottom");
+  @include border(1rem, $bg-color-dark, "top");
+  position: relative;
+  &:before, &:after{
+    content:"";
+    position:absolute;
+    bottom:-1rem;
+    width:30%;
+    height:1rem;
+    background-color: $bg-color-dark;
+  }
+  &:before{
+    left:0;
+  }
+  &:after{
+    right:0;
+  }
+}
+.bg-focal{
+  @include colors($color-light01, $color-dark01);
+}
+.bg-content1{
+  @include colors($bg-color-default, $color-dark02);
+}
+.bg-content2{
+  @include colors($bg-color-light, $bg-color-dark);
+}
+.bg-footer{
+  @include colors($bg-color-default, $color-light02);
+}
+header{
+  width: $default-width;
+  margin: 0 auto;
+  position: relative;
+  h1{
+    width: 100%;
+    padding: 0 2rem;
+    color: $color-dark01;
+    letter-spacing: 0.1rem;
+    i.fa-lg {
+      display: block;
+      width: 25%;
+      float: left;
+      font-size: $font-scale-07;
+      line-height: 12.7936rem;
+      color: $color-light01;
+      &~span {
+        float: right;
+        width: 75%;
+        font-size: $font-scale-05; //2 lines of 3.998 * 1.6 = 12.7936
+        padding-left: 1rem;
+        text-align: right;
+      }
+    }
+  }
+  nav{
+    width: 100%;
+    padding:2rem 0;
+    clear: both;
+    ul li{
+      width:100%;
+      float: none;
+      a{
+        display:block;
+        text-align: center;
+        text-decoration: none;
+        font-size: $font-scale-02;
+        letter-spacing: $letter-space-default;
+        padding:1.0rem 2rem;
+        line-height: 1;
+        @include border(1px, $color-light02);
+        @include border(0,null,"bottom");
+        @include colors($bg-color-default,$color-dark02);
+        &:hover{
+          @include font-weight(7);
+          color:$color-dark01;
+        }
+      }
+    }
+  }
+}
+section {
+  &.focal {
+    width: $default-width;
+    margin: 0 auto;
+    h2{
+      line-height: 1.2;
+      font-size: $font-scale-03;
+      padding: 2rem 2rem 1rem 2rem;
+    }
+    .author{
+      font-size: $font-scale-01;
+      padding: 0.2rem 2rem 2rem;
+    }
+  }
+  &.content1 {
+    padding: 2rem 0;
+    p{
+      font-size: $font-scale-02;
+      padding: 0.5rem 2rem 2rem;
+    }
+    h3{
+      font-size:$font-scale-03;
+      padding: 0.2rem 2rem 2rem;
+      i{
+        vertical-align:middle;
+        padding-right: 2rem;
+      }
+    }
+  }
+  &.content2 {
+    @extend .content1;
+    //h3 {
+    //  font-size: $font-scale-03;
+    //  padding: 1rem 2rem 0.5rem;
+    //}
+    h4{
+      font-size: $font-scale-03;
+      padding: 1rem 2rem 0rem;
+    }
+    p{
+      font-size: $font-scale-02;
+      padding: 0.5rem 2rem 1rem;
+      //background-color: #7C593C;
+    }
+    li{
+      font-size: $font-scale-02;
+      padding: 0.5rem 2rem;
+    }
+  }
+}
+.row{
+  clear: both;
+}
+.col-2{
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  @include equalSpaced(2);
+  @include border(1px, $bg-color-dark, "left");
+}
+footer{
+  padding:2rem 0;
+  .col-2:first-child{
+    @include border(0,null,"left");
+  }
+  h4{
+    font-size: $font-scale-02;
+    padding: 0.5rem 2rem;
+    color: $color-dark01;
+  }
+  p{
+    font-size: $font-scale-01;
+    padding: 0.5rem 2rem;
+    @extend .fa-circle;
+  }
+  .fa-circle{
+    color: $color-dark02;
+  }
+  h4 {
+    &[lang=de] {
+      display: block;
+    }
+    &[lang=en],
+    &[lang=ar],
+    &[lang=ru]{
+      display: none;
+    }
+  }
+}
+//
+@import "queries";
+//
