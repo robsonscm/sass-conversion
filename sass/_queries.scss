@@ -133,6 +133,8 @@ $breakpoints: (
         &>a{
           padding: 0 1.0rem;
           margin: 1.0rem 0;
+          line-height: 2rem;
+          min-height: 2rem;
         }
       }
     }
@@ -581,4 +583,4 @@ $breakpoints: (
 //    }
 //  }
 //}
-////
+/////
