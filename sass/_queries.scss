@@ -128,11 +128,18 @@ $breakpoints: (
     nav{
       &>ul>li{
         background-color: $bg-color-default;
-        &>a{
+        & a{
           padding: 0 1.0rem;
           margin: 1.0rem 0;
           line-height: 2rem;
           min-height: 2rem;
+          border: none;
+        }
+        &:first-child a {
+          border-left:none;
+        }
+        &:last-child a {
+          border-right:none;
         }
       }
     }
