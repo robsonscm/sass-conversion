@@ -9,7 +9,6 @@
 }
 
 @mixin equalSpaced( $num_of_cols, $gutter:false, $width:100%  ){
-
   @if $gutter {
     width: ( $width - ( $gutter * ($num_of_cols - 1) ) ) / $num_of_cols;
     margin-left: $gutter;
@@ -21,7 +20,6 @@
   &:first-child{
     margin-left: 0;
   }
-
 }
 @mixin box-sizing($option) {
   -webkit-box-sizing: $option;
